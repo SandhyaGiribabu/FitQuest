@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitQuest</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <section id="header">
+
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-auto logo">
+                    <img src="img/logo.png" alt="Logo" style="margin-right:-40px;">
+                </div>
+                <div class="col-auto">
+                    <h1 class="app-title">Fit<span style="color:lightseagreen;">Quest</span></h1>
+                </div>    
+                <div class="col">
+                    <ul id="navbar" class="nav justify-content-end">
+                        <li class="nav-item"><a class="nav-link" href="login1.html">Login</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="registration.html">Register</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="main-1">
+        <div id="alert-container"></div> <!-- Alert container -->
+
+        <div class="row">
+            <div class="col">
+                <img src="https://img.freepik.com/free-vector/workout-concept-illustration_114360-1120.jpg?t=st=1721634777~exp=1721638377~hmac=a431acced4f21e29385c9286f224eb05d2bccd90f25470773cd35648ae37e932&w=740">
+            </div>
+            <div class="col">
+                <h1 style="padding-top:60px; font-weight: 700; font-size: 3.5rem;">
+                    Welcome to Fit<span style="color:lightseagreen;">Quest </span>
+                </h1> 
+                <form style="margin-top: 10px;">
+                    <div class="form-group">
+                        <label for="exampleInputEmail">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter email">
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword" placeholder="Password">
+                    </div>
+                    <button type="button" class="btn btn-primary btn-lg" style="margin-top: 10px; margin-right:20px; border-radius: 2rem; background-color:lightseagreen;" id="login-btn">Login</button>
+                    <button type="button" class="btn btn-light" id="google-login-button"><img style="width:60px; height:30px;" src="https://cdn2.hubspot.net/hubfs/53/image8-2.jpg">Login using Google</button>
+                </form>
+                <div style="margin-top: 20px;"> Don't have an account?</div>
+                <button type="button" class="btn btn-primary btn-lg" style="margin-top: 10px; border-radius: 2rem; background-color:lightseagreen;" id="signup-btn">Sign Up</button>
+            </div>
+        </div>
+    </section>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
+        import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-analytics.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAKXIO2Nt-BcG3YfLV8T9EstxOY8l0CZWQ",
+            authDomain: "fitquest-f0bbe.firebaseapp.com",
+            projectId: "fitquest-f0bbe",
+            storageBucket: "fitquest-f0bbe.appspot.com",
+            messagingSenderId: "326269933392",
+            appId: "1:326269933392:web:2deaa95b7bd0884a16fe55",
+            measurementId: "G-FY5CLMT9JG"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const analytics = getAnalytics(app);
+
+        // Function to show alerts
+        function showAlert(type, message) {
+            const alertContainer = document.getElementById('alert-container');
+            alertContainer.innerHTML = `
+                <div class="alert alert-${type}" role="alert">
+                    ${message}
+                </div>
+            `;
+            setTimeout(() => {
+                alertContainer.innerHTML = ''; // Clear alert after 3 seconds
+            }, 3000);
+        }
+
+        // Google Authentication
+        const googleLoginButton = document.getElementById('google-login-button');
+        const provider = new GoogleAuthProvider();
+        googleLoginButton.addEventListener('click', () => {
+            signInWithPopup(auth, provider)
+                .then((result) => {
+                    const user = result.user;
+                    console.log('User Info:', user);
+                    showAlert('success', 'Logged in successfully');
+                    window.location.href = 'home.html';
+                })
+                .catch((error) => {
+                    console.error('Error:', error.code, error.message);
+                    showAlert('danger', 'Google login failed. Please try again.');
+                });
+        });
+
+        // Email/Password Authentication
+        const emailInput = document.getElementById('exampleInputEmail');
+        const passwordInput = document.getElementById('exampleInputPassword');
+        const loginButton = document.getElementById('login-btn');
+
+        loginButton.addEventListener('click', () => {
+            const email = emailInput.value;
+            const password = passwordInput.value;
+
+            signInWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    const user = userCredential.user;
+                    console.log('User Info:', user);
+                    showAlert('success', 'Logged in successfully');
+                    window.location.href = 'home.html';
+                })
+                .catch((error) => {
+                    console.error('Error:', error.code, error.message);
+                    showAlert('danger', 'Invalid email or password.');
+                });
+        });
+
+        // Sign up button event
+        document.getElementById('signup-btn').addEventListener('click', () => {
+            window.location.href = 'registration.html';
+        });
+    </script>
+</body>
+</html>
