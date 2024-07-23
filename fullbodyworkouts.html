@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitQuest</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+    <section id="header">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-auto logo">
+                    <img src="img/logo.png" alt="Logo" style="margin-right:-40px";>
+                </div>
+                <div class="col-auto">
+                    <h1 class="app-title">Fit<span style="color:lightseagreen;">Quest</span></h1>
+                </div>    
+                <div class="col">
+                    <ul id="navbar" class="nav justify-content-end">
+                        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="Programs.html">Programs</a></li>
+                        <li class="nav-item"><a class="nav-link" href="analysis.html">Analysis</a></li>
+                        <li class="nav-item"><a class="nav-link" href="diet.html">Diet</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="profile.html">
+                                <img src="img/profile.png" class="rounded-circle" alt="Profile Icon" style="width: 30px; height: 30px; object-fit: cover;">
+                            </a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="#" id="close"><i class="fa fa-window-close"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="workouts">
+        <div class="container">
+            <h1 class="my-4">Full Body Workouts</h1>
+            <div id="exercise-container" class="mt-4">
+                <div class="d-flex align-items-start">
+                    <div id="exercise-details" class="flex-grow-1" ></div>
+                    <div class="circle-container">
+                        <svg id="circle-svg" width="200" height="200" style="display: none;">
+                            <circle id="circle-bg" cx="100" cy="100" r="90" stroke="#ddd" stroke-width="20" fill="none"></circle>
+                            <circle id="circle-progress" cx="100" cy="100" r="90" stroke="lightseagreen" stroke-width="20" fill="none" stroke-dasharray="565.48" stroke-dashoffset="565.48"></circle>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <button id="start-button" class="btn btn-primary mt-4">Let's Start</button>
+        </div>
+    </section>
+    <script src="scripts.js"></script>
+</body>
+</html>

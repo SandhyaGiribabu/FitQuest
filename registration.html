@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitQuest - Register</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <section id="header">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-auto logo">
+                    <img src="img/logo.png" alt="Logo" style="margin-right:-40px;">
+                </div>
+                <div class="col-auto">
+                    <h1 class="app-title">Fit<span style="color:lightseagreen;">Quest</span></h1>
+                </div>    
+                <div class="col">
+                    <ul id="navbar" class="nav justify-content-end">
+                        <li class="nav-item"><a class="nav-link" href="login1.html">Login</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="registration.html">Register</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="main-1">
+        <div id="alert-container"></div> <!-- Alert container -->
+
+        <div class="row">
+            <div class="col">
+                <img src="https://img.freepik.com/free-vector/workout-concept-illustration_114360-1120.jpg?t=st=1721634777~exp=1721638377~hmac=a431acced4f21e29385c9286f224eb05d2bccd90f25470773cd35648ae37e932&w=740">
+            </div>
+            <div class="col">
+                <h1 style="padding-top:60px; font-weight: 700; font-size: 3.5rem;">
+                    Register for Fit<span style="color:lightseagreen;">Quest</span>
+                </h1> 
+                <form style="margin-top: 10px;">
+                    <div class="form-group">
+                        <label for="exampleInputEmail">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail" placeholder="Enter email">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword" placeholder="Password">
+                    </div>
+                    <button type="button" class="btn btn-primary btn-lg" style="margin-top: 10px; border-radius: 2rem; background-color:lightseagreen;" id="register-btn">Register</button>
+                </form>
+                <div style="margin-top: 20px;"> Already have an account?</div>
+                <a class="btn btn-secondary btn-lg" href="login1.html" style="margin-top: 10px; border-radius: 2rem;">Login</a>
+            </div>
+        </div>
+    </section>
+    
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAKXIO2Nt-BcG3YfLV8T9EstxOY8l0CZWQ",
+            authDomain: "fitquest-f0bbe.firebaseapp.com",
+            projectId: "fitquest-f0bbe",
+            storageBucket: "fitquest-f0bbe.appspot.com",
+            messagingSenderId: "326269933392",
+            appId: "1:326269933392:web:2deaa95b7bd0884a16fe55",
+            measurementId: "G-FY5CLMT9JG"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        // Function to show alerts
+        function showAlert(type, message) {
+            const alertContainer = document.getElementById('alert-container');
+            alertContainer.innerHTML = `
+                <div class="alert alert-${type}" role="alert">
+                    ${message}
+                </div>
+            `;
+            setTimeout(() => {
+                alertContainer.innerHTML = ''; // Clear alert after 3 seconds
+            }, 3000);
+        }
+
+        // Registration
+        document.getElementById('register-btn').addEventListener('click', () => {
+            const email = document.getElementById('exampleInputEmail').value;
+            const password = document.getElementById('exampleInputPassword').value;
+
+            createUserWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    const user = userCredential.user;
+                    console.log('User Info:', user);
+                    showAlert('success', 'Registration successful. Please log in.');
+                    // Optionally redirect to login page or home page
+                    // window.location.href = 'login1.html';
+                })
+                .catch((error) => {
+                    console.error('Error:', error.code, error.message);
+                    showAlert('danger', `Registration failed: ${error.message}. Please try again.`);                });
+        });
+    </script>
+</body>
+</html>

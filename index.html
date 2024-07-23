@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitQuest</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-analytics.js"></script>
+
+
+</head>
+<body>
+    <section id="header">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-auto logo">
+                    <img src="img/logo.png" alt="Logo" style="margin-right:-40px";>
+                </div>
+                <div class="col-auto">
+                    <h1 class="app-title">Fit<span style="color:lightseagreen;">Quest</span></h1>
+                </div>    
+                <div class="col">
+                    <ul id="navbar" class="nav justify-content-end">
+                        <li class="nav-item"><a class="nav-link active" href="registration.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="registration.html">Programs</a></li>
+                        <li class="nav-item"><a class="nav-link" href="registration.html">Analysis</a></li>
+                        <li class="nav-item"><a class="nav-link" href="registration.html">Diet</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="profile.html">
+                                <img src="img/profile.png" class="rounded-circle" alt="Profile Icon" style="width: 30px; height: 30px; object-fit: cover;">
+                            </a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="#" id="close"><i class="fa fa-window-close"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="main-1">
+            <div class="row">
+                <div class="col">
+                    <img src="https://img.freepik.com/free-vector/workout-concept-illustration_114360-1120.jpg?t=st=1721634777~exp=1721638377~hmac=a431acced4f21e29385c9286f224eb05d2bccd90f25470773cd35648ae37e932&w=740">
+
+                </div>
+                <div class="col">
+                    <h1 style="padding-top:100px; font-weight: 700; font-size: 3.5rem;">
+                        Welcome to Fit<span style="color:lightseagreen;">Quest </span>
+
+                    </h1> 
+                    <h3 style="padding-top: 20px; ">
+                        We are here to help you achieve your fitness goals.
+                    </h3>
+                    <h3 style="padding-top: 20px; ">
+                        Your <span  style="color:lightseagreen;">health </span> is your <span  style="color:lightseagreen;">choice.  </span>
+                    </h3>
+                    <button  id="login" type="button" class="btn btn-primary btn-lg" style="margin-top: 50px; border-radius: 2rem; background-color:lightseagreen;">Get started</button>
+
+                </div>
+            </div>
+        
+    </section>
+    <script type="module" src="scripts.js"></script>
+</body>
+</html>

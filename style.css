@@ -1,0 +1,352 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Spartan', sans-serif;
+    
+
+}
+
+#main-1{
+    background-color: white;
+    background-image: "https://img.freepik.com/free-vector/workout-concept-illustration_114360-1120.jpg?t=st=1721634777~exp=1721638377~hmac=a431acced4f21e29385c9286f224eb05d2bccd90f25470773cd35648ae37e932&w=740";
+}
+#login {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#login:hover {
+    background-color: #0056b3; /* Change this to your desired hover background color */
+    color: #fff; /* Change this to your desired hover text color */
+}
+#header {
+    display: flex;
+    align-items: center;
+    padding: 20px 80px;
+    background: #E3E6F3;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+    z-index: 999;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+   
+}
+
+h1 {
+    font-size: 50px;
+    line-height: 64px;
+    color: #222;
+
+}
+
+h2 {
+    font-size: 46px;
+    line-height: 54px;
+    color: #222;
+
+}
+
+h4 {
+    font-size: 20px;
+    color: #222
+}
+
+h6 {
+    font-weight: 700;
+    font-size: 12px;
+}
+
+p {
+    font-size: 16px;
+    color: #465b52;
+    margin: 15px 0 20px 0;
+}
+
+.section-p1 {
+    padding: 40px 80px;
+}
+
+.section-m1 {
+    margin: 40px 0;
+}
+
+body {
+    width: 100%;
+}
+
+#navbar {
+    display: flex;
+    align-items: left;
+    justify-content: left;
+}
+
+#navbar li {
+    list-style: none;
+    padding: 0 20px;
+    position: relative;
+}
+
+#navbar li a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: black;
+    transition: 0.3s;
+    font-size: 1rem;
+
+}
+
+#navbar li a:hover,
+#navbar li a.active {
+    color: lightseagreen;
+
+}
+
+
+#navbar li a.active::after,
+#navbar li a:hover::after {
+    content: " ";
+    width: 30%;
+    height: 2px;
+    background: lightseagreen;
+    position: absolute;
+    bottom: -4px;
+    left: 20px;
+}
+
+#close {
+    display: none;
+}
+#header {
+    padding: 10px 0; /* Add padding to the top and bottom of the header */
+}
+#navbar {
+    margin-bottom: 0; /* Remove bottom margin from navbar */
+}
+.logo {
+    margin-right: 10px; /* Adjust spacing between logo and title */
+}
+.logo img {
+    height: 65px;
+}
+.app-title {
+    font-size: 1.5em;
+    margin: 0;
+    padding-top: 15px;
+}
+.nav-link {
+    padding: 0.5rem 1rem; /* Adjust padding for better spacing */
+}
+#main {
+    background-image: url('img/bg.jpg');
+    background-size: cover; /* Ensures the image covers the whole background */
+    background-repeat: no-repeat;
+    height: 130vh;
+    padding: 0 50px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    background-position: center -200px; /* Moves the image up by 50px */
+}
+.box {
+    border: 1px solid #000;
+    padding: 20px;
+    margin: 10px 0;
+    text-align: center;
+    font-size: 1.5rem;
+    width: 300px; /* Set the width to 5px */
+    /* Ensure content does not overflow */
+    white-space: nowrap; /* Prevent text from wrapping */
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s, border-radius 0.3s;
+    background-color: #ebecef;
+  }
+  .box:hover{
+    box-shadow: 0 4px 8px rgba(70, 91, 82, 0.7);
+    border-radius: 3rem;
+  }
+  .emoji {
+    font-size: 3rem;
+    margin-right: 10px;
+    text-align: left;
+  }
+  .container {
+    margin-top: 100px; /* Bring the boxes down */
+    
+  }
+  
+
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color:  #E3E6F3;
+    
+}
+
+footer .col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+footer .logo {
+    margin-bottom: 30px;
+}
+
+footer h4 {
+    font-size: 14px;
+    padding-bottom: 20px;
+}
+
+footer p {
+    font-size: 13px;
+    margin: 0 0 8px 0;
+}
+
+footer a {
+    font-size: 13px;
+    text-decoration: none;
+    color: #222;
+    margin-bottom: 10px;
+}
+
+footer .follow {
+    margin-top: 20px;
+}
+
+footer .follow i {
+    color: #465b52;
+    padding-right: 4px;
+    cursor: pointer;
+}
+
+footer .install .row img {
+    border: 1px solid #088178;
+    border-radius: 6px;
+}
+
+footer .install img {
+    margin: 10px 0 15px 0;
+}
+
+footer .follow i:hover,
+footer a:hover {
+    color: #088178;
+}
+
+footer .copyright {
+    width: 100%;
+    text-align: center;
+}
+.programs {
+    margin-top: -50px;
+}
+#programs {
+    padding-top: 0; /* Remove or adjust padding */
+}
+/* Example CSS */
+#workouts {
+    padding: 20px;
+    height:1000px;
+    background-color: #f8f9fa;
+}
+
+.exercise {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.exercise img {
+    max-width: 100%;
+    height: auto;
+}
+
+.exercise h3 {
+    margin-top: 0;
+}
+
+.exercise p {
+    margin: 10px 0;
+}
+
+#timer, #break-timer {
+    font-weight: bold;
+    color: #333;
+}
+
+.break-message {
+    text-align: center;
+}
+
+#start-button {
+    display: block;
+}
+/* style.css */
+
+
+.circle-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#circle-svg {
+    transform: rotate(-90deg); /* Rotate to start from top */
+}
+
+#circle-bg {
+    stroke: #ddd;
+}
+
+#circle-progress {
+    stroke: lightseagreen;
+    transition: stroke-dashoffset 1s linear;
+}
+
+#timer-text {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: lightseagreen;
+    margin-top: 20px;
+}
+
+#start-button {
+    font-size: 1em;
+    padding: 10px 20px;
+    color: white;
+    background-color: lightseagreen;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+#start-button:hover {
+    background-color: darkseagreen;
+}
+
+#exercise-container .exercise img {
+    width: 100%;
+    height: auto;
+}
+
+#exercise-container .exercise,
+#exercise-container .break-message {
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+#exercise-container h3 {
+    margin-top: 0;
+}
+
